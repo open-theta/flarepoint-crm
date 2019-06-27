@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Events\NewComment;
 use App\Notifications\YouWereMentionedNotification;
 
-class NotiftyMentionedUsers
+class NotifyMentionedUsers
 {
     /**
      * Create the event listener.

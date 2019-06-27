@@ -39,8 +39,27 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $dates  = ['trial_ends_at', 'subscription_ends_at'];
-    protected $hidden = ['password', 'password_confirmation', 'remember_token'];
+    protected $dates  = [
+        'trial_ends_at', 'subscription_ends_at',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'password_confirmation', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     protected $primaryKey = 'id';
 

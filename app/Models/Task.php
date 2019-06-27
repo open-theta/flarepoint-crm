@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Carbon;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +48,7 @@ class Task extends Model
 
     public function getDaysUntilDeadlineAttribute()
     {
-        return Carbon\Carbon::now()
+        return Carbon::now()
             ->startOfDay()
             ->diffInDays($this->deadline, false); // if you are past your deadline, the value returned will be negative.
     }

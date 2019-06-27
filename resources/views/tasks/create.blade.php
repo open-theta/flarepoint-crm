@@ -22,7 +22,7 @@
     <div class="form-inline">
         <div class="form-group col-sm-6 removeleft ">
             {!! Form::label('deadline', __('Deadline'), ['class' => 'control-label']) !!}
-            {!! Form::date('deadline', \Carbon\Carbon::now()->addDays(3), ['class' => 'form-control']) !!}
+            {!! Form::date('deadline', Carbon::now()->addDays(3), ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-sm-6 removeleft removeright">

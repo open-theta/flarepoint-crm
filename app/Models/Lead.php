@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Carbon;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +48,7 @@ class Lead extends Model
 
     public function getDaysUntilContactAttribute()
     {
-        return Carbon\Carbon::now()->startOfDay()->diffInDays($this->contact_date, false);
+        return Carbon::now()->startOfDay()->diffInDays($this->contact_date, false);
     }
 
     /**

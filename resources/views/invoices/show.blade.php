@@ -119,7 +119,7 @@
                 'route' => ['invoice.payment.date', $invoice->id],
                 ]) !!}
 
-                {!! Form::date('payment_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                {!! Form::date('payment_date', Carbon::now(), ['class' => 'form-control']) !!}
 
                 {!! Form::submit('Set invoice as paid', ['class' => 'btn btn-success form-control closebtn']) !!}
         </div>

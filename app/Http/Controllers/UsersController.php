@@ -14,7 +14,7 @@ use App\Repositories\Role\RoleRepositoryContract;
 use App\Repositories\Setting\SettingRepositoryContract;
 use App\Repositories\Task\TaskRepositoryContract;
 use App\Repositories\User\UserRepositoryContract;
-use Carbon;
+use Carbon\Carbon;
 use Datatables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

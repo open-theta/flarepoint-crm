@@ -102,7 +102,7 @@
                       'route' => ['leads.followup', $lead->id],
                       ]) !!}
                     {!! Form::label('contact_date', __('Next follow up'), ['class' => 'control-label']) !!}
-                    {!! Form::date('contact_date', \Carbon\Carbon::now()->addDays(7), ['class' => 'form-control']) !!}
+                    {!! Form::date('contact_date', Carbon::now()->addDays(7), ['class' => 'form-control']) !!}
                     {!! Form::time('contact_time', '11:00', ['class' => 'form-control']) !!}
 
 

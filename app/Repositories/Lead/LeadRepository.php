@@ -3,7 +3,7 @@
 namespace App\Repositories\Lead;
 
 use App\Models\Lead;
-use Carbon;
+use Carbon\Carbon;
 use DB;
 
 /**

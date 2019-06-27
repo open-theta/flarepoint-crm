@@ -28,7 +28,7 @@
         </div>
         <div class="form-group col-lg-4 removeleft">
             {!! Form::label('contact_date', __('Deadline'), ['class' => 'control-label']) !!}
-            {!! Form::date('contact_date', \Carbon\Carbon::now()->addDays(7), ['class' => 'form-control']) !!}
+            {!! Form::date('contact_date', Carbon::now()->addDays(7), ['class' => 'form-control']) !!}
         </div>
         <div class="form-group col-lg-5 removeleft removeright">
             {!! Form::label('contact_time', __('Time'), ['class' => 'control-label']) !!}

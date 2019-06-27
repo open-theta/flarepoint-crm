@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+window.Vue = require('vue');
+
 import ElementUI from 'element-ui';
 import graphline from './components/Graphline.vue';
 import doughnut from './components/Doughnut.vue';

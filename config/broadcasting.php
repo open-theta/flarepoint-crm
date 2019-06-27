@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Broadcaster
@@ -27,19 +26,19 @@ return [
     */
 
     'connections' => [
-
         'pusher' => [
-            'driver' => 'pusher',
-            'key' => env('PUSHER_KEY'),
-            'secret' => env('PUSHER_SECRET'),
-            'app_id' => env('PUSHER_APP_ID'),
+            'driver'  => 'pusher',
+            'key'     => env('PUSHER_KEY'),
+            'secret'  => env('PUSHER_SECRET'),
+            'app_id'  => env('PUSHER_APP_ID'),
             'options' => [
-                //
+                'cluster'   => env('PUSHER_APP_CLUSTER'),
+                'encrypted' => true,
             ],
         ],
 
         'redis' => [
-            'driver' => 'redis',
+            'driver'     => 'redis',
             'connection' => 'default',
         ],
 
@@ -47,6 +46,8 @@ return [
             'driver' => 'log',
         ],
 
+        'null' => [
+            'driver' => 'null',
+        ],
     ],
-
 ];

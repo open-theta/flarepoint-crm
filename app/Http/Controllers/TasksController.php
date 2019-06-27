@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon;
+use Carbon\Carbon;
 use Datatables;
 use App\Models\Task;
 use App\Models\Integration;

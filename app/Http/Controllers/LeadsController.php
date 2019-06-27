@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon;
+use Carbon\Carbon;
 use Session;
 use Datatables;
 use App\Models\Lead;
