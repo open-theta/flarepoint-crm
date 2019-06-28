@@ -27,7 +27,7 @@
         "barryvdh/laravel-debugbar": "~3.2",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
-        "laravel/dusk": "^3.0",
+        "laravel/dusk": "^5.0.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "5.8.*@dev",
