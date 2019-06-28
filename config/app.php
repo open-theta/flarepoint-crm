@@ -176,7 +176,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -235,6 +234,5 @@ return [
         'Role'            => Zizaco\Entrust\Middleware\EntrustRole::class,
         'Permission'      => Zizaco\Entrust\Middleware\EntrustPermission::class,
         'Ability'         => Zizaco\Entrust\Middleware\EntrustAbility::class,
-        'Debugbar'        => Barryvdh\Debugbar\Facade::class,
     ],
 ];

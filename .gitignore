@@ -3,8 +3,11 @@
 /node_modules
 Homestead.yaml
 Homestead.json
-.env
 bower_components
+
+
+.env*
+!.env.example
 
 .docker/flarepoint-db/*
 
