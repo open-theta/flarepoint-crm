@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title>FlarePoint</title>
-
+{{-- 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'
           type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-
+ --}}
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
-    <style>
+   {{--  <style>
         body {
             font-family: 'Lato';
         }
@@ -24,45 +24,33 @@
         .fa-btn {
             margin-right: 6px;
         }
-    </style>
+    </style> --}}
 </head>
 <body id="app-layout">
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
+<div class="container">
 
-
-        </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-
-
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (!Auth::guest())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </ul>
-                    </li>
-                @endif
-            </ul>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 mx-auto">
+                            <img src="{{ asset('images/FP_logo_big.png') }}" class="img-fluid" alt="Flarepoint CRM">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<div style="text-align: center; margin-bottom:20px;"><img src="{{ asset('images/FP_logo_big.png') }}" width="400px"
-                                                          alt=""></div>
-@yield('content')
 
-        <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    @yield('content')
+
+</div>
+
+<!-- JavaScripts -->
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> --}}
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> --}}
+<script src="{{ elixir('js/app.js') }}"></script>
+
 </body>
 </html>
