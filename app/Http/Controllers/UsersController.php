@@ -48,9 +48,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // dd($this->anyData());
-
-        return view('users.index')->withUsers($this->users);
+        return view('users.index')
+            ->with('users', User::select('id', 'name')->orderBy('name')->get());
     }
 
     public function users()
