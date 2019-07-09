@@ -49,7 +49,7 @@ class UsersController extends Controller
     public function index()
     {
         return view('users.index')
-            ->with('users', User::select('id', 'name')->orderBy('name')->get());
+            ->with('users', User::orderBy('name')->get()->pluck('name', 'id'));
     }
 
     public function users()
@@ -59,7 +59,7 @@ class UsersController extends Controller
 
     public function anyData()
     {
-        $users         = User::select('users.*');
+        $users = User::select('users.*');
 
         $dt = Datatables::of($users)
             ->addColumn('namelink', function ($users) {
@@ -248,9 +248,56 @@ class UsersController extends Controller
      *
      * @return mixed
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request)
     {
-        $this->users->destroy($request, $id);
+        // load the user so we can get relational data
+        $id   = $request->id;
+        $user = User::with('clients', 'tasks', 'leads')->findOrFail($id);
+
+        if ($request->user_clients === $id || $request->user_tasks === $id || $request->user_leads === $id) {
+            Session()->flash('flash_error', 'You may not reassign clients, leads or tasks to the user you are deleting!');
+        } else {
+            // are we keeping her clients?
+            if ('' === $request->user_clients) {
+                // just delete all the clients related to this user
+                foreach ($user->clients as $client) {
+                    $client->delete();
+                }
+            } else {
+                // move all clients to new user
+                foreach ($user->clients() as $client) {
+                    $client->user_id = $request->user_clients;
+                    $client->save();
+                }
+            }
+
+            // are we keeping her tasks?
+            if ('' === $request->user_tasks) {
+                // just delete all the tasks related to this user
+                $user->tasks()->delete();
+            } else {
+                // move all clients to new user
+                foreach ($user->tasks() as $task) {
+                    $task->user_id = $request->user_tasks;
+                    $task->save();
+                }
+            }
+
+            // are we keeping her leads?
+            if ('' === $request->user_leads) {
+                // just delete all the leads related to this user
+                $user->leads()->delete();
+            } else {
+                // move all clients to new user
+                foreach ($user->leads() as $lead) {
+                    $lead->user_assigned_id = $request->user_leads;
+                    $lead->save();
+                }
+            }
+
+            $user->delete();
+            Session()->flash('flash_message', 'User successfully deleted');
+        }
 
         return redirect()->route('users.index');
     }
