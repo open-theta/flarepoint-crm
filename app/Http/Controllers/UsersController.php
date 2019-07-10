@@ -17,7 +17,6 @@ use App\Repositories\User\UserRepositoryContract;
 use Carbon\Carbon;
 use Datatables;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -64,21 +63,14 @@ class UsersController extends Controller
         $dt = Datatables::of($users)
             ->addColumn('namelink', function ($users) {
                 return '<a href="users/'.$users->id.'">'.$users->name.'</a>';
+            })
+            ->addColumn('actions', function ($users) {
+                return '<form action="{{ route(\'users.destroy\', $id) }}" method="POST">
+                    <a href="{{ route(\'users.edit\', $id) }}" class="btn btn-success btn-xs"> Edit</a>
+                    <button type="button" class="btn btn-danger delete_client" data-client_id="'.$users->id.'" data-toggle="modal" data-target="#myModal">Delete</button>';
             });
 
-        $actions = '';
-        if (Auth::user()->can('user-delete')) {
-            $actions .= '<form action="{{ route(\'users.destroy\', $id) }}" method="POST">';
-        }
-        if (Auth::user()->can('user-update')) {
-            $actions .= '<a href="{{ route(\'users.edit\', $id) }}" class="btn btn-success btn-xs"> Edit</a> ';
-        }
-        if (Auth::user()->can('user-delete')) {
-            $actions .= '<input type="hidden" name="_method" value="DELETE"><input type="submit" name="delete" value="Delete" class="btn btn-danger btn-xs" onClick="return confirm(\'Are you sure?\')"">{{csrf_field()}}</form>';
-        }
-
-        return $dt->addColumn('actions', $actions)
-            ->rawColumns(['namelink', 'actions'])
+        return $dt->rawColumns(['namelink', 'actions'])
             ->make(true);
     }
 
