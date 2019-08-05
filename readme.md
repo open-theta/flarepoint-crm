@@ -14,6 +14,7 @@ I would like to refer to the wiki, for help on getting started
 * [Installation](https://github.com/Bottelet/Flarepoint-crm/wiki/Install)
 * [Upgrading](https://github.com/Bottelet/Flarepoint-crm/wiki/Upgrading)
 * [Installation with Docker](https://github.com/Bottelet/Flarepoint-crm/wiki/Install-using-Docker)
+*  Need composer update --no-scripts  
 * [Insertion of dummy data](https://github.com/Bottelet/Flarepoint-crm/wiki/Insertion-of-dummy-data)
 
 
