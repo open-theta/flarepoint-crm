@@ -11,8 +11,8 @@ return [
     |
     */
 
-    'name'    => env('APP_NAME', 'Flarepoint CRM'),
-    'version' => ('1.3.7'),
+    'name'    => env('APP_NAME', 'BigDataVietnam CDP'),
+    'version' => ('1.0.0'),
 
     /*
     |--------------------------------------------------------------------------

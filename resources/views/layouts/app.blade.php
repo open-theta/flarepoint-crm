@@ -56,8 +56,7 @@
         </div>
     </div>
 </nav>
-<div style="text-align: center; margin-bottom:20px;"><img src="{{ asset('images/FP_logo_big.png') }}" width="400px"
-                                                          alt=""></div>
+<div style="text-align: center; margin-bottom:20px;"><img src="{{ asset('images/cdp-logo-big.png') }}" width="400px" alt=""></div>
 @yield('content')
 
         <!-- JavaScripts -->
