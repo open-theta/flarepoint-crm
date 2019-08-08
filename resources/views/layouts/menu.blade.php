@@ -7,11 +7,21 @@
             <a href="{{route('users.show', \Auth::id())}}" class=" list-group-item" data-parent="#MainMenu"><i
                         class="glyphicon sidebar-icon glyphicon-user"></i><span id="menu-txt">{{ __('Profile') }}</span> </a>
 
+            
+            <a href="#datasources" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Data Sources</span>
+            <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
+            <div class="collapse" id="datasources">
+                <a href="{{ route('website-tag')}}" class="list-group-item childlist">Website Tag</a>
+                <a href="{{ route('app-sdk')}}" class="list-group-item childlist">App SDK</a>
+                <a href="{{ route('uploader')}}" class="list-group-item childlist">Data Uploader</a>
+            </div>
+            
+
             <a href="#clients" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
                         class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">{{ __('Clients') }}</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="clients">
-
                 <a href="{{ route('clients.my')}}" class="list-group-item childlist">{{ __('My Clients') }}</a>
                 <a href="{{ route('clients.index')}}" class="list-group-item childlist">{{ __('All Clients') }}</a>
                 @if(Entrust::can('client-create'))

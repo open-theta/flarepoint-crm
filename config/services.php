@@ -27,11 +27,6 @@ return [
         'key'    => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
-    ],
-
-    'dinero' => [
-        'secret' => env('DINERO_SECRET', 'SECRET'),
-        'client' => env('DINERO_CLIENTID', 'CLIENTID'),
     ]
 
 

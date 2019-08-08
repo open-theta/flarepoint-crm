@@ -50,6 +50,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RolesController');
 
     /*
+     * CDP Tagging for Stream Data Sources
+     */
+    Route::group(['prefix' => 'tagging'], function () {
+        Route::get('/web', 'CdpTagController@web')->name('website-tag');
+        Route::get('/app', 'CdpTagController@app')->name('app-sdk');
+        Route::get('/uploader', 'CdpTagController@uploader')->name('uploader');
+    });
+    Route::resource('tagging', 'CdpTagController');
+
+    /*
      * Clients
      */
     Route::group(['prefix' => 'clients'], function () {
