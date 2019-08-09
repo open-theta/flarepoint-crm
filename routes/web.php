@@ -50,14 +50,34 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RolesController');
 
     /*
-     * CDP Tagging for Stream Data Sources
+     * CDP Customer Data Collection
      */
-    Route::group(['prefix' => 'tagging'], function () {
-        Route::get('/web', 'CdpTagController@web')->name('website-tag');
-        Route::get('/app', 'CdpTagController@app')->name('app-sdk');
-        Route::get('/uploader', 'CdpTagController@uploader')->name('uploader');
+    Route::group(['prefix' => 'cdp-collection'], function () {
+        Route::get('/by-tag', 'CdpCollectionController@byTagging')->name('col-by-tagging');
+        Route::get('/by-api', 'CdpCollectionController@byApiEndpoint')->name('col-by-api-endpoint');
+        Route::get('/profile-uploader', 'CdpCollectionController@byProfileUploader')->name('col-by-profile-uploader');
+        Route::get('/profile-importer', 'CdpCollectionController@byProfileImporter')->name('col-by-profile-importer');
     });
-    Route::resource('tagging', 'CdpTagController');
+    Route::resource('cdp-collection', 'CdpCollectionController');
+
+    /*
+     * CDP Customer Data Unification
+     */
+    Route::group(['prefix' => 'cdp-unification'], function () {
+        Route::get('/profile', 'CdpUnificationController@byTagging')->name('cdp-unification-profile');
+        Route::get('/brand', 'CdpUnificationController@byApiEndpoint')->name('cdp-unification-brand');
+        Route::get('/campaign', 'CdpUnificationController@byProfileUploader')->name('cdp-unification-campaign');
+    });
+    Route::resource('cdp-unification', 'CdpUnificationController');
+
+    /*
+     * CDP Customer Data Segmetation
+     */
+    Route::group(['prefix' => 'cdp-segmetation'], function () {
+        Route::get('/list', 'CdpSegmetationController@list')->name('cdp-segmetation-list');
+        Route::get('/build', 'CdpSegmetationController@build')->name('cdp-segmetation-build');
+    });
+    Route::resource('cdp-segmetation', 'CdpSegmetationController');
 
     /*
      * Clients
