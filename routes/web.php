@@ -50,34 +50,57 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RolesController');
 
     /*
-     * CDP Customer Data Collection
+     * CDP Profile Data Collection Builder, from offline media, website, app, social media , uploaded files and CRM
      */
-    Route::group(['prefix' => 'cdp-collection'], function () {
-        Route::get('/by-tag', 'CdpCollectionController@byTagging')->name('col-by-tagging');
-        Route::get('/by-api', 'CdpCollectionController@byApiEndpoint')->name('col-by-api-endpoint');
-        Route::get('/profile-uploader', 'CdpCollectionController@byProfileUploader')->name('col-by-profile-uploader');
-        Route::get('/profile-importer', 'CdpCollectionController@byProfileImporter')->name('col-by-profile-importer');
+    Route::group(['prefix' => 'cdp-collection-builder'], function () {
+        Route::get('/build-by-tagging', 'CdpCollectionBuilderController@byTagging')->name('cdp-build-by-tagging');
+        Route::get('/build-by-api', 'CdpCollectionBuilderController@byApiEndpoint')->name('cdp-build-by-api');
+        Route::get('/build-by-profile-uploader', 'CdpCollectionBuilderController@byProfileUploader')->name('cdp-build-by-profile-uploader');
+        Route::get('/build-by-profile-importer', 'CdpCollectionBuilderController@byProfileImporter')->name('cdp-build-by-profile-importer');
     });
-    Route::resource('cdp-collection', 'CdpCollectionController');
+    Route::resource('cdp-collection-builder', 'CdpCollectionBuilderController');
 
     /*
-     * CDP Customer Data Unification
+     * CDP Unified Analytics: collection, campaign, brand, product
      */
-    Route::group(['prefix' => 'cdp-unification'], function () {
-        Route::get('/profile', 'CdpUnificationController@byTagging')->name('cdp-unification-profile');
-        Route::get('/brand', 'CdpUnificationController@byApiEndpoint')->name('cdp-unification-brand');
-        Route::get('/campaign', 'CdpUnificationController@byProfileUploader')->name('cdp-unification-campaign');
+    Route::group(['prefix' => 'cdp-unified-analytics'], function () {
+        // Analytics for data collection,  data from offline media, website, app, social media , uploaded files and CRM
+        Route::get('/collections', 'CdpUnifiedAnalyticsController@collections')->name('cdp-analytics-collections');
+        Route::get('/collection', 'CdpUnifiedAnalyticsController@collection')->name('cdp-analytics-collection');
+
+        // Analytics for general marketing campaigns (user acquisition for app installation)
+        Route::get('/campaigns', 'CdpUnifiedAnalyticsController@campaigns')->name('cdp-analytics-campaigns');
+        Route::get('/campaign', 'CdpUnifiedAnalyticsController@campaign')->name('cdp-analytics-campaign');
+
+        // Analytics for branding marketing: CPM or CPV (reach and in-target segment)
+        Route::get('/brands', 'CdpUnifiedAnalyticsController@brands')->name('cdp-analytics-brands');
+        Route::get('/brand', 'CdpUnifiedAnalyticsController@brand')->name('cdp-analytics-brand');
+
+        // Analytics for performance marketing: CPL or CPC (user click, tap or marketer's rules tracking event)
+        Route::get('/products', 'CdpUnifiedAnalyticsController@products')->name('cdp-analytics-products');
+        Route::get('/product', 'CdpUnifiedAnalyticsController@product')->name('cdp-analytics-product');
     });
-    Route::resource('cdp-unification', 'CdpUnificationController');
+    Route::resource('cdp-unified-analytics', 'CdpUnifiedAnalyticsController');
 
     /*
-     * CDP Customer Data Segmetation
+     * CDP Data Segmetation for Profile data
      */
-    Route::group(['prefix' => 'cdp-segmetation'], function () {
-        Route::get('/list', 'CdpSegmetationController@list')->name('cdp-segmetation-list');
-        Route::get('/build', 'CdpSegmetationController@build')->name('cdp-segmetation-build');
+    Route::group(['prefix' => 'cdp-data-segmetation'], function () {
+        Route::get('/list', 'CdpDataSegmetationController@list')->name('cdp-segmetation-list');
+        Route::get('/build', 'CdpDataSegmetationController@build')->name('cdp-segmetation-build');
     });
-    Route::resource('cdp-segmetation', 'CdpSegmetationController');
+    Route::resource('cdp-data-segmetation', 'CdpDataSegmetationController');
+
+    /*
+     * CDP Customer Activation from segments or smart profile
+     */
+    Route::group(['prefix' => 'cdp-customer-activation'], function () {
+        Route::get('/by-email-marketing', 'CdpCustomerActivationController@byEmailMarketing')->name('cdp-email-marketing');
+        Route::get('/by-social-marketing', 'CdpCustomerActivationController@bySocialMarketing')->name('cdp-social-marketing');
+    });
+    Route::resource('cdp-customer-activation', 'CdpCustomerActivationController');
+
+    
 
     /*
      * Clients

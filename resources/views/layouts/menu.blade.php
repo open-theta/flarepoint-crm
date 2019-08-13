@@ -6,18 +6,49 @@
                         class="glyphicon sidebar-icon glyphicon-dashboard"></i><span id="menu-txt">{{ __('Dashboard') }}</span> </a>
             <a href="{{route('users.show', \Auth::id())}}" class=" list-group-item" data-parent="#MainMenu"><i
                         class="glyphicon sidebar-icon glyphicon-user"></i><span id="menu-txt">{{ __('Profile') }}</span> </a>
-
-            
-            <a href="#datasources" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
-                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Data Sources</span>
+       
+            <!-- for Marketing team -->
+            <div style="width: 100%;height: 20px;background-color: rgb(255, 255, 255);text-align: center;" >Marketing Analytics</div>
+            <a href="#cdp_collection" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Profile Collection Builder</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
-            <div class="collapse" id="datasources">
-                <a href="{{ route('website-tag')}}" class="list-group-item childlist">Website Tag</a>
-                <a href="{{ route('app-sdk')}}" class="list-group-item childlist">App SDK</a>
-                <a href="{{ route('uploader')}}" class="list-group-item childlist">Data Uploader</a>
+            <div class="collapse" id="cdp_collection">
+                <a href="{{ route('cdp-build-by-tagging')}}" class="list-group-item childlist">Pixel Tagging</a>
+                <a href="{{ route('cdp-build-by-api')}}" class="list-group-item childlist">API Endpoint</a>
+                <a href="{{ route('cdp-build-by-profile-uploader')}}" class="list-group-item childlist">Profile Uploader</a>
+                <a href="{{ route('cdp-build-by-profile-importer')}}" class="list-group-item childlist">Profile Importer</a>
             </div>
-            
 
+            <a href="#unified_analytics" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Unified Analytics</span>
+            <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
+            <div class="collapse" id="unified_analytics">
+                <a href="{{ route('cdp-analytics-collections')}}" class="list-group-item childlist">Collections</a>
+                <a href="{{ route('cdp-analytics-campaigns')}}" class="list-group-item childlist">Campaigns</a>
+                <a href="{{ route('cdp-analytics-brands')}}" class="list-group-item childlist">Brands</a>
+                <a href="{{ route('cdp-analytics-products')}}" class="list-group-item childlist">Products</a>
+            </div>
+
+            <a href="#data_segmentation" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Data Segmentation</span>
+            <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
+            <div class="collapse" id="data_segmentation">
+                <a href="{{ route('cdp-segmetation-list')}}" class="list-group-item childlist">Segments</a>
+                <a href="{{ route('cdp-segmetation-build')}}" class="list-group-item childlist">Create new Segment</a>
+            </div>
+
+            <a href="#Customer Activation" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Customer Activation</span>
+            <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
+            <div class="collapse" id="customer_activation">
+                <a href="{{ route('cdp-segmetation-list')}}" class="list-group-item childlist">Email marketing</a>
+                <a href="{{ route('cdp-segmetation-build')}}" class="list-group-item childlist">Content marketing</a>
+                <a href="{{ route('cdp-segmetation-build')}}" class="list-group-item childlist">Programmatic marketing</a>
+            </div>
+
+            <!-- for Sales team -->
+            <div style="width: 100%;height: 20px;background-color: rgb(255, 255, 255);text-align: center;" >Customer Management</div>
+            
             <a href="#clients" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
                         class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">{{ __('Clients') }}</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
@@ -66,14 +97,18 @@
                 @endif
             </div>
 
+           
+            <!-- for Administrator -->
+            <div style="width: 100%;height: 20px;background-color: rgb(255, 255, 255);text-align: center;" >System Administration</div>
+            
             <a href="#user" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
-                        class="sidebar-icon fa fa-users"></i><span id="menu-txt">{{ __('Users') }}</span>
+                class="sidebar-icon fa fa-users"></i><span id="menu-txt">{{ __('Users') }}</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="user">
                 <a href="{{ route('users.index')}}" class="list-group-item childlist">{{ __('Users All') }}</a>
                 @if(Entrust::can('user-create'))
                     <a href="{{ route('users.create')}}"
-                       class="list-group-item childlist">{{ __('New User') }}</a>
+                    class="list-group-item childlist">{{ __('New User') }}</a>
                 @endif
             </div>
 
@@ -82,13 +117,12 @@
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="departments">
                 <a href="{{ route('departments.index')}}"
-                   class="list-group-item childlist">{{ __('All Departments') }}</a>
+                class="list-group-item childlist">{{ __('All Departments') }}</a>
                 @if(Entrust::hasRole('administrator'))
                     <a href="{{ route('departments.create')}}"
-                       class="list-group-item childlist">{{ __('New Department') }}</a>
+                    class="list-group-item childlist">{{ __('New Department') }}</a>
                 @endif
             </div>
-
             @if(Entrust::hasRole('administrator'))
                 <a href="#settings" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
                             class="glyphicon sidebar-icon glyphicon-cog"></i><span id="menu-txt">{{ __('Settings') }}</span>
