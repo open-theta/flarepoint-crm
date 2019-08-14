@@ -13,14 +13,14 @@
                 class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Profile Collection Builder</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="cdp_collection">
-                <a href="{{ route('cdp-build-by-tagging')}}" class="list-group-item childlist">Pixel Tagging</a>
+                <a href="{{ route('cdp-build-by-tagging')}}" class="list-group-item childlist">Pixel Code Tagging</a>
                 <a href="{{ route('cdp-build-by-api')}}" class="list-group-item childlist">API Endpoint</a>
                 <a href="{{ route('cdp-build-by-profile-uploader')}}" class="list-group-item childlist">Profile Uploader</a>
                 <a href="{{ route('cdp-build-by-profile-importer')}}" class="list-group-item childlist">Profile Importer</a>
             </div>
 
             <a href="#unified_analytics" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
-                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Unified Analytics</span>
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Unified Data Analytics</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="unified_analytics">
                 <a href="{{ route('cdp-analytics-collections')}}" class="list-group-item childlist">Collections</a>
@@ -30,7 +30,7 @@
             </div>
 
             <a href="#data_segmentation" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
-                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Data Segmentation</span>
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Profile Data Segmentation</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="data_segmentation">
                 <a href="{{ route('cdp-segmetation-list')}}" class="list-group-item childlist">Segments</a>
@@ -38,7 +38,7 @@
             </div>
 
             <a href="#Customer Activation" class=" list-group-item" data-toggle="collapse" data-parent="#MainMenu"><i
-                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Customer Activation</span>
+                class="glyphicon sidebar-icon glyphicon-tag"></i><span id="menu-txt">Customer Data Activation</span>
             <i class="ion-chevron-up  arrow-up sidebar-arrow"></i></a>
             <div class="collapse" id="customer_activation">
                 <a href="{{ route('cdp-segmetation-list')}}" class="list-group-item childlist">Email marketing</a>

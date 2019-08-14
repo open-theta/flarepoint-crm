@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Profile Data Collection controller
  */
-class CdpCollectionBuilderController extends Controller
+class CdpDataCollectorController extends Controller
 {
     
     public function __construct(
@@ -31,7 +31,7 @@ class CdpCollectionBuilderController extends Controller
      */
     public function byTagging()
     {
-        return view('cdp-collection.by-tagging');
+        return view('cdp-collection.by-tagging');
     }
 
     /**

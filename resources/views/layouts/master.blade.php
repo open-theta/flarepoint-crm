@@ -11,6 +11,42 @@
 
     <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+   
+
+    <style>
+        .venntooltip {
+            font-size: 14px;
+            position: absolute;
+            text-align: center;
+            width: 128px;
+            height: 85px;
+            background: #333;
+            color: #fff;
+            padding: 2px;
+            border: 0px;
+            border-radius: 8px;
+            opacity: 0;
+        }
+    
+        div.vcenter {
+            width: 100%;
+            height: 200px;
+        }
+    
+        div.summary_metric {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+            padding-right: 38px;
+        }
+    
+        .bar {
+            fill: steelblue;
+        }
+    </style>
+    
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 </head>
 <body>
@@ -118,6 +154,19 @@ $('body').click(function(e) {
     <script type="text/javascript" src="{{ URL::asset('js/jasny-bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.caret.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.atwho.min.js') }}"></script>
+
+    <!-- autocomplete -->
+	<link href="https://cdn.jsdelivr.net/npm/easy-autocomplete@1.3.5/dist/easy-autocomplete.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/easy-autocomplete@1.3.5/dist/easy-autocomplete.themes.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/easy-autocomplete@1.3.5/dist/jquery.easy-autocomplete.min.js"></script>
+    
+    <!-- data visualization libs for report -->
+	<script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d3-time@1.0.10/dist/d3-time.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d3-funnel@1.2.1/dist/d3-funnel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.min.js"></script>
+
+    <script src="{{ asset('js/visualizations/collection-report.js') }}"></script>
 
 @stack('scripts')
 

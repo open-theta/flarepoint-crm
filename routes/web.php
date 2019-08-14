@@ -52,13 +52,13 @@ Route::group(['middleware' => ['auth']], function () {
     /*
      * CDP Profile Data Collection Builder, from offline media, website, app, social media , uploaded files and CRM
      */
-    Route::group(['prefix' => 'cdp-collection-builder'], function () {
-        Route::get('/build-by-tagging', 'CdpCollectionBuilderController@byTagging')->name('cdp-build-by-tagging');
-        Route::get('/build-by-api', 'CdpCollectionBuilderController@byApiEndpoint')->name('cdp-build-by-api');
-        Route::get('/build-by-profile-uploader', 'CdpCollectionBuilderController@byProfileUploader')->name('cdp-build-by-profile-uploader');
-        Route::get('/build-by-profile-importer', 'CdpCollectionBuilderController@byProfileImporter')->name('cdp-build-by-profile-importer');
+    Route::group(['prefix' => 'cdp-data-collector'], function () {
+        Route::get('/build-by-tagging', 'CdpDataCollectorController@byTagging')->name('cdp-build-by-tagging');
+        Route::get('/build-by-api', 'CdpDataCollectorController@byApiEndpoint')->name('cdp-build-by-api');
+        Route::get('/build-by-profile-uploader', 'CdpDataCollectorController@byProfileUploader')->name('cdp-build-by-profile-uploader');
+        Route::get('/build-by-profile-importer', 'CdpDataCollectorController@byProfileImporter')->name('cdp-build-by-profile-importer');
     });
-    Route::resource('cdp-collection-builder', 'CdpCollectionBuilderController');
+    Route::resource('cdp-data-collector', 'CdpDataCollectorController');
 
     /*
      * CDP Unified Analytics: collection, campaign, brand, product
@@ -66,19 +66,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'cdp-unified-analytics'], function () {
         // Analytics for data collection,  data from offline media, website, app, social media , uploaded files and CRM
         Route::get('/collections', 'CdpUnifiedAnalyticsController@collections')->name('cdp-analytics-collections');
-        Route::get('/collection', 'CdpUnifiedAnalyticsController@collection')->name('cdp-analytics-collection');
+        Route::get('/collection/{id}', 'CdpUnifiedAnalyticsController@collection')->name('cdp-analytics-collection');
 
         // Analytics for general marketing campaigns (user acquisition for app installation)
         Route::get('/campaigns', 'CdpUnifiedAnalyticsController@campaigns')->name('cdp-analytics-campaigns');
-        Route::get('/campaign', 'CdpUnifiedAnalyticsController@campaign')->name('cdp-analytics-campaign');
+        Route::get('/campaign/{id}', 'CdpUnifiedAnalyticsController@campaign')->name('cdp-analytics-campaign');
 
         // Analytics for branding marketing: CPM or CPV (reach and in-target segment)
         Route::get('/brands', 'CdpUnifiedAnalyticsController@brands')->name('cdp-analytics-brands');
-        Route::get('/brand', 'CdpUnifiedAnalyticsController@brand')->name('cdp-analytics-brand');
+        Route::get('/brand/{id}', 'CdpUnifiedAnalyticsController@brand')->name('cdp-analytics-brand');
 
         // Analytics for performance marketing: CPL or CPC (user click, tap or marketer's rules tracking event)
         Route::get('/products', 'CdpUnifiedAnalyticsController@products')->name('cdp-analytics-products');
-        Route::get('/product', 'CdpUnifiedAnalyticsController@product')->name('cdp-analytics-product');
+        Route::get('/product/{id}', 'CdpUnifiedAnalyticsController@product')->name('cdp-analytics-product');
     });
     Route::resource('cdp-unified-analytics', 'CdpUnifiedAnalyticsController');
 
