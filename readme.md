@@ -43,6 +43,7 @@ Flarepoint is still under development, so there are a lot on my to-do list.
 - Excel Import/export
 - Better cache
 - Even easier installation
+- utils class for creating unique ID number https://www.sitepoint.com/create-unique-64bit-integer-string/
 
 And much more (in no particular order)
 

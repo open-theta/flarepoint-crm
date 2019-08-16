@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'name'    => env('APP_NAME', 'BigDataVietnam CDP'),
+    'name'    => env('APP_NAME', 'Customer Data Platform'),
     'version' => ('1.0.0'),
 
     /*
