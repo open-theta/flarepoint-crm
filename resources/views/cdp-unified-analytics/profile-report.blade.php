@@ -24,7 +24,7 @@
           <h4><span class="label label-default">First Session</span> 2018.07.25 </h4>
           <h4><span class="label label-default">First Session</span> 2019.07.25 </h4>
           <h4><span class="label label-default">Media Hit</span> 102 </h4>
-          <h4><span class="label label-default">Avg time on Digital Media </span> 8 hours / day </h4>
+          <h4><span class="label label-default">Time Spent with Digital Media </span> 8 hours / day </h4>
           <h4><span class="label label-default">Region</span> Vietnam, Nha Trang </h4>
 
           <h4><span class="label label-default">Device type</span> Smartphones </h4>
@@ -98,8 +98,8 @@
         <h3>Predictive Personality Traits(The OCEAN Model) </h3>
       </div>
       <div class="pairs">
-          <div id="chart_persornality">
-          </div>
+        <div id="chart_persornality">
+        </div>
       </div>
     </div>
 
@@ -194,7 +194,7 @@
 
       <div class=" bar-module">
         <div>
-          <h3>Top Preferred Product's Categories</h3>
+          <h3>Top Preferred Products</h3>
         </div>
         <div class="pairs">
           <div class="heading-slider slider-outer  ">
@@ -231,11 +231,8 @@
   <div class="line"></div>
 
   <div class="row">
-    <h3 style="text-align: center"> Profile Journey Map </h3>
-    <img src="https://miro.medium.com/max/2000/1*SEEuVwNhtuUIvNICszXzjA.png" style="width: 100%" />
-    <div id="chart">
-      <svg></svg>
-    </div>
+      <h3 style="text-align: center"> Customer Journey Map </h3>
+      <div id="sankeyChart" style="height:600px; width:90%;"></div>
   </div>
 
 
@@ -406,8 +403,47 @@ function personalityDiagram(){
 }
 
 function profilePathDiagram(){
+    var configSankey = {
+      margin: { top: 10, left: 10, right: 10, bottom: 10 },
+      nodes: {
+        dynamicSizeFontNode: {
+          enabled: true,
+          minSize: 14,
+          maxSize: 30
+        },
+        fontSize: 14, // if dynamicSizeFontNode not enabled
+        draggableX: false, // default [ false ]
+        draggableY: true, // default [ true ]
+        colors: d3.scaleOrdinal(d3.schemeCategory10)
+      },
+      links: {
+        formatValue: function(val) {
+          return d3.format(",.0f")(val) + ' views';
+        },
+        unit: 'views' // if not set formatValue function
+      },
+      tooltip: {
+        infoDiv: true,  // if false display default tooltip
+        labelSource: 'Input:',
+        labelTarget: 'Output:'
+      }
+    }
+    var datajson = {nodes: [
+      {id: 0, name: "Facebook"},
+      {id: 1, name: "Google"},
+      {id: 2, name: "Product Website", color:"yellow"},
+      {id: 3, name: "Retail Store", color: "green"}
+    ],
+    links: [
+      {source: 0, target: 1, value: 1},
+      {source: 1, target: 3, value: 5},
+      {source: 0, target: 2, value: 3},
+      {source: 0, target: 3, value: 7},
+      {source: 1, target: 2, value: 1}
+    ]};
     
-}
+    var objSankey = sk.createSankey('#sankeyChart', configSankey, datajson);
+  }
     
 </script>
 @endpush

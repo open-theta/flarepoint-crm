@@ -104,7 +104,7 @@ function loadChannelPerformance() {
 
 function loadConversionFunnel() {
   var data = [
-    ["Impression", 21981, "#008080"],
+    ["View", 21981, "#008080"],
     ["Reach", 7423, "#4AADC6"],
     ["Profile", 2319, "#702963"],
     ["Lead", 161, "#C46511"],

@@ -218,15 +218,11 @@
     <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.min.js"></script>
 
     <!-- Sankey diagrams JS -->
-    <script src="https://unpkg.com/d3-array@1"></script>
-    <script src="https://unpkg.com/d3-collection@1"></script>
-    <script src="https://unpkg.com/d3-path@1"></script>
-    <script src="https://unpkg.com/d3-shape@1"></script>
-    <script src="https://unpkg.com/d3-sankey@0"></script>
+    <script src="//rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
+    <link  href="//rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- RadarChart diagrams JS -->
     <script src="https://bl.ocks.org/alandunning/raw/4c36eb1abdb248de34c64f5672afd857/RadarChart.js"></script>
-
-    
 
     <script src="{{ asset('js/visualizations/collection-report.js') }}"></script>
 
