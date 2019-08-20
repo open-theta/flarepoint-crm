@@ -13,6 +13,7 @@
   <div class="text-center">
     <img src="https://img.icons8.com/carbon-copy/2x/user.png" alt="Profile Avatar" class="profile_avatar">
   </div>
+
   <div class="row">
     <div class="col-md-6">
       <div class="profile_info">
@@ -46,7 +47,7 @@
           <h4><span class="label label-default">Address</span> Phu Lam , P.13, Q.6, TP.HCM </h4>
           <h4><span class="label label-default">Education status</span> University </h4>
           <h4><span class="label label-default">Family status</span> Single </h4>
-          
+
           <h4><span class="label label-default">Facebook Profile ID </span>
             <a target="_blank" href="https://www.facebook.com/100001265810045"> 100001265810045 </a>
           </h4>
@@ -60,6 +61,51 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-6 bar-module">
+      <div>
+        <h3>Persornal Lifestyle Trends</h3>
+      </div>
+      <div class="pairs">
+        <div class="heading-slider slider-outer  ">
+          <div class="name">Wearable Tech</div>
+          <div class="slider-container">
+            <div class="slider-bar" style="width: 82%;"></div>
+          </div>
+        </div>
+        <div class="heading-slider slider-outer  ">
+          <div class="name">Travel</div>
+          <div class="slider-container">
+            <div class="slider-bar" style="width: 37%;"></div>
+          </div>
+        </div>
+        <div class="heading-slider slider-outer  ">
+          <div class="name">Sport</div>
+          <div class="slider-container">
+            <div class="slider-bar" style="width: 99%;"></div>
+          </div>
+        </div>
+        <div class="heading-slider slider-outer  ">
+          <div class="name">Consumption</div>
+          <div class="slider-container">
+            <div class="slider-bar" style="width: 70%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div>
+        <h3>Predictive Personality Traits(The OCEAN Model) </h3>
+      </div>
+      <div class="pairs">
+          <div id="chart_persornality">
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
   <div class="line"></div>
 
   <div class="row">
@@ -69,6 +115,7 @@
       </div>
     </div>
     <div class="col-md-6">
+
       <div class=" bar-module">
         <div>
           <h3>Preferred Channels</h3>
@@ -101,33 +148,77 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+
+  <div class="line"></div>
+
+  <div class="row">
+    <div class="col-md-6">
+
       <div class=" bar-module">
         <div>
-          <h3>Lifestyle Trends</h3>
+          <h3>Top Preferred Brands</h3>
         </div>
         <div class="pairs">
           <div class="heading-slider slider-outer  ">
-            <div class="name">Wearable Tech</div>
+            <div class="name">Apple</div>
             <div class="slider-container">
-              <div class="slider-bar" style="width: 82%;"></div>
+              <div class="slider-bar" style="width: 62%;"></div>
             </div>
           </div>
           <div class="heading-slider slider-outer  ">
-            <div class="name">Travel</div>
+            <div class="name">Nike</div>
             <div class="slider-container">
               <div class="slider-bar" style="width: 37%;"></div>
             </div>
           </div>
           <div class="heading-slider slider-outer  ">
-            <div class="name">Sport</div>
+            <div class="name">Coffeehouse</div>
             <div class="slider-container">
               <div class="slider-bar" style="width: 99%;"></div>
             </div>
           </div>
-          <div class="heading-slider slider-outer  ">
-            <div class="name">Consumption</div>
+          <div class="heading-slider slider-outer ">
+            <div class="name">Trung Nguyen Legends</div>
             <div class="slider-container">
-              <div class="slider-bar" style="width: 70%;"></div>
+              <div class="slider-bar" style="width: 13%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class=" bar-module">
+        <div>
+          <h3>Top Preferred Product's Categories</h3>
+        </div>
+        <div class="pairs">
+          <div class="heading-slider slider-outer  ">
+            <div class="name">Tech</div>
+            <div class="slider-container">
+              <div class="slider-bar" style="width: 62%;"></div>
+            </div>
+          </div>
+          <div class="heading-slider slider-outer  ">
+            <div class="name">Books</div>
+            <div class="slider-container">
+              <div class="slider-bar" style="width: 37%;"></div>
+            </div>
+          </div>
+          <div class="heading-slider slider-outer  ">
+            <div class="name">Shoes</div>
+            <div class="slider-container">
+              <div class="slider-bar" style="width: 99%;"></div>
+            </div>
+          </div>
+          <div class="heading-slider slider-outer ">
+            <div class="name">Coffee </div>
+            <div class="slider-container">
+              <div class="slider-bar" style="width: 13%;"></div>
             </div>
           </div>
         </div>
@@ -136,13 +227,17 @@
     </div>
   </div>
 
+  <br>
+  <div class="line"></div>
+
   <div class="row">
-    <h3 style="text-align: center"> Profile Journey Map from all media touchpoints  </h3>
+    <h3 style="text-align: center"> Profile Journey Map </h3>
     <img src="https://miro.medium.com/max/2000/1*SEEuVwNhtuUIvNICszXzjA.png" style="width: 100%" />
     <div id="chart">
       <svg></svg>
     </div>
   </div>
+
 
 </div>
 <br><br><br><br>
@@ -156,6 +251,7 @@
  jQuery(document).ready(function(){
     loadMediaTouchpoints()
     profilePathDiagram()
+    personalityDiagram();
  });
 
  function loadMediaTouchpoints() {
@@ -272,6 +368,41 @@
         .style("fill-opacity", d.sets.length == 1 ? 0.8 : 0)
         .style("stroke-opacity", 1);
     });
+}
+
+function personalityDiagram(){
+  var width = 300,
+    height = 300;
+
+  // Config for the Radar chart
+  var config = {
+      w: width,
+      h: height,  
+      maxValue: 100,
+      levels: 5,
+      ExtraWidthX: 300
+  }
+
+  var data = [
+    [
+      {"area": "Openness", "value": 80},
+      {"area": "Conscientiousness", "value": 40},
+      {"area": "Extraversion ", "value": 40},
+      {"area": "Agreeableness ", "value": 90},
+      {"area": "Neuroticism ", "value": 60}
+  	]
+  ]
+
+  //Call function to draw the Radar chart
+
+  
+  
+  var svg = d3.select('chart_persornality')
+    .append('svg')
+    .attr("width", width)
+    .attr("height", height);
+
+    RadarChart.draw("#chart_persornality", data, config);
 }
 
 function profilePathDiagram(){
