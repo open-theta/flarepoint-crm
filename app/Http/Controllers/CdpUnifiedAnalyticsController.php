@@ -39,10 +39,24 @@ class CdpUnifiedAnalyticsController extends Controller
     /**
      * 
      */
-    public function collection($id)
+    public function collection($collectionId)
     {
-        $data = ['collectionId'=>$id];
+        $data = ['collectionId'=>$collectionId];
         return view('cdp-unified-analytics.collection-report', $data);
+    }
+
+    public function profiles()
+    {
+        # code...
+        return view('cdp-unified-analytics.profiles');
+    }
+
+
+    public function profile($profileId)
+    {
+        # code...
+        $data = ['profileId'=>$profileId];
+        return view('cdp-unified-analytics.profile-report',$data);
     }
 
     //marketing campaign

@@ -33,6 +33,10 @@
             width: 100%;
             height: 200px;
         }
+
+        div.profile_data {
+            width: 100%;
+        }
     
         div.summary_metric {
             height: 400px;
@@ -40,6 +44,55 @@
             align-items: center;
             text-align: right;
             padding-right: 38px;
+        }
+
+        div.profile_info {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            padding-left: 38px;
+        }
+
+        div.profile_info h4 {
+            margin-top: 15px; 
+        }
+
+        div.profile_info span {
+            margin-right: 5px; 
+        }
+
+        .slider-container {
+            background-color: gray;
+            cursor: pointer;
+            height: 15px;
+            margin: 4px 0 0;
+            width: 100%;
+            z-index: 11;
+        }
+        .slider-bar {
+            background-color: #00BD9C;
+            height: 15px;
+        }
+
+        .bar-module .name {
+            margin-top: 5px;
+            min-height: 20px;
+        }
+
+        div.line {
+            height: 1px;
+            width: 100%;
+            margin:4px 0; 
+            background-color: #333;
+        }
+
+        img.profile_avatar {
+            border-radius: .3rem!important;
+            max-width: 150px!important;
+            max-height: 150px!important;;
+            vertical-align: middle;
+            border-style: none;
+            margin: 10px;
         }
     
         .bar {
@@ -82,15 +135,15 @@
                 </div>
                     @push('scripts')
                     <script>
-$('#notification-clock').click(function(e) {
-  e.stopPropagation();
-  $(".menu").toggleClass('bar')
-});
-$('body').click(function(e) {
-  if ($('.menu').hasClass('bar')) {
-    $(".menu").toggleClass('bar')
-  }
-})
+                    $('#notification-clock').click(function(e) {
+                    e.stopPropagation();
+                    $(".menu").toggleClass('bar')
+                    });
+                    $('body').click(function(e) {
+                    if ($('.menu').hasClass('bar')) {
+                        $(".menu").toggleClass('bar')
+                    }
+                    })
                   id = {};
                         function postRead(id) {
                             $.ajax({
@@ -103,9 +156,7 @@ $('body').click(function(e) {
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 }
                             });
-
                         }
-
                     </script>
                 @endpush
         <!--NOTIFICATIONS END-->
@@ -165,6 +216,15 @@ $('body').click(function(e) {
 	<script src="https://cdn.jsdelivr.net/npm/d3-time@1.0.10/dist/d3-time.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d3-funnel@1.2.1/dist/d3-funnel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.min.js"></script>
+
+    <!-- Sankey diagrams JS -->
+    <script src="https://unpkg.com/d3-array@1"></script>
+    <script src="https://unpkg.com/d3-collection@1"></script>
+    <script src="https://unpkg.com/d3-path@1"></script>
+    <script src="https://unpkg.com/d3-shape@1"></script>
+    <script src="https://unpkg.com/d3-sankey@0"></script>
+
+    
 
     <script src="{{ asset('js/visualizations/collection-report.js') }}"></script>
 

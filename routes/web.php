@@ -64,10 +64,14 @@ Route::group(['middleware' => ['auth']], function () {
      * CDP Unified Analytics: collection, campaign, brand, product
      */
     Route::group(['prefix' => 'cdp-unified-analytics'], function () {
-        // Analytics for data collection,  data from offline media, website, app, social media , uploaded files and CRM
+        // Analytics for data collection, data from offline media, website, app, social media , uploaded files and CRM
         Route::get('/collections', 'CdpUnifiedAnalyticsController@collections')->name('cdp-analytics-collections');
         Route::get('/collection/{id}', 'CdpUnifiedAnalyticsController@collection')->name('cdp-analytics-collection');
 
+        // Analytics for 360-view of user profiles, data from offline media, website, app, social media , uploaded files and CRM
+        Route::get('/profiles', 'CdpUnifiedAnalyticsController@profiles')->name('cdp-analytics-profiles');
+        Route::get('/profile/{id}', 'CdpUnifiedAnalyticsController@profile')->name('cdp-analytics-profile');
+        
         // Analytics for general marketing campaigns (user acquisition for app installation)
         Route::get('/campaigns', 'CdpUnifiedAnalyticsController@campaigns')->name('cdp-analytics-campaigns');
         Route::get('/campaign/{id}', 'CdpUnifiedAnalyticsController@campaign')->name('cdp-analytics-campaign');

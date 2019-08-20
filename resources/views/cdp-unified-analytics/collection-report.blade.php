@@ -46,7 +46,6 @@
 </div>
 <br><br><br><br>
 
-
 @stop
 
 @push('scripts')
